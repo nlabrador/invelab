@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <main id="main">
+    <section id="contact">
+      <div class="container col-md-6">
+        <h4>Create New Item</h4>
+        <div class="form">
+          <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group col-md-12">
+                <input type="text" name="item_number" class="form-control"  placeholder="Item #"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" name="description"  placeholder="Item Description"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" name="brand"  placeholder="Brand Name"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" name="serial" class="form-control"  placeholder="Serial #"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" name="purchase_date" class="form-control"  placeholder="Purchase Date (mm-dd-yyyy)"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" name="store"  placeholder="Store Purchased"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" name="price"  placeholder="Price"   />
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control" name="receipt"  placeholder="Receipt #"   />
+              </div>
+              <div class="form-group col-md-12">
+                <select name="location" class="form-control">
+                    <option value="">-- Assigned Location --</option>
+                    {% for location in locations %}
+                        <option value="{{ location }}">{{ location }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="form-group col-md-12">
+                <input type="text" name="assigned_to" class="form-control"  placeholder="Assigned To"   />
+              </div>
+              <div class="form-group col-md-12">
+                <select name="status" class="form-control">
+                    <option value="">-- Choose Status --</option>
+                    {% for status in statuses %}
+                        <option value="{{ status }}">{{ status }}</option>
+                    {% endfor %}
+                </select>
+                <div class="validation"></div>
+              </div>
+              <div class="text-center">
+                <button type="submit">Save Item</button>
+              </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+{% endblock %}

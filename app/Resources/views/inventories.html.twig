@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <main id="main" class="inventories-list">
+    <section id="contact">
+      <div class="container">
+        <h4>Inventories</h4>
+        
+        <table id="inventories" class="display table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Item#</th>
+                    <th>Description</th>
+                    <th>Brand</th>
+                    <th>Serial#</th>
+                    <th>Purchased</th>
+                    <th>Store</th>
+                    <th>Price</th>
+                    <th>Receipt#</th>
+                    <th>Location</th>
+                    <th>Assigned</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set count = 0 %}
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.item_number }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.brand }}</td>
+                        <td>{{ item.serial }}</td>
+                        <td>{{ item.purchase_date }}</td>
+                        <td>{{ item.store }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.receipt }}</td>
+                        <td>{{ item.location }}</td>
+                        <td>{{ item.assigned_to }}</td>
+                        <td><span class="badge badge-success">{{ item.status }}</span></td>
+                        <td>
+                            <a href="{{ path('edit', {index:count}) }}" class="btn btn-sm btn-primary">Edit</a>
+                            <br>
+                            <a href="{{ path('delete', {index:count}) }}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% set count = count + 1 %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+      </div>
+    </section>
+  </main>
+{% endblock %}
